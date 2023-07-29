@@ -4,7 +4,7 @@
 
 ## 部署教程
 
-- Workers 教程地址：待发布
+- Workers 教程地址：https://blog.misaka.rest/2023/07/29/cf-wkrs-vless/
 - Pages 教程地址：待发布
 
 ## 鸣谢项目
