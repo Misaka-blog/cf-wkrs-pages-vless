@@ -749,10 +749,28 @@ function getVLESSConfig(userID, hostName) {
     const vlessLink = `vless://${userID}@${hostName}:80?encryption=none&security=none&fp=randomized&type=ws&host=${hostName}&path=%2F%3Fed%3D2048#${hostName}`
     const vlessTlsLink = `vless://${userID}@${hostName}:443?encryption=none&security=tls&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=%2F%3Fed%3D2048#${hostName}`
     return `
-下面是非 TLS 端口的节点链接，可使用 CF 支持的非 TLS 端口：
+下面是非 TLS 端口的节点信息及分享链接，可使用 CF 支持的非 TLS 端口：
+
+地址：${hostName} 或 CF 优选 IP
+端口：80 或 CF 支持的非 TLS 端口
+UUID：${userID}
+传输：ws
+伪装域名：${hostName}
+路径：/?ed=2048
+
 ${vlessLink}
 
-下面是 TLS 端口的节点链接，可使用 CF 支持的 TLS 端口：
+下面是 TLS 端口的节点信息及分享链接，可使用 CF 支持的 TLS 端口：
+
+地址：${hostName} 或 CF 优选 IP
+端口：443 或 CF 支持的非 TLS 端口
+UUID：${userID}
+传输：ws
+传输层安全：TLS
+伪装域名：${hostName}
+路径：/?ed=2048
+SNI 域名：${hostName}
+
 ${vlessTlsLink}
 
 提示：如使用 workers.dev 域名，则无法使用 TLS 端口
