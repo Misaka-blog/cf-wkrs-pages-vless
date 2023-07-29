@@ -746,7 +746,7 @@ async function handleUDPOutBound(webSocket, vlessResponseHeader, log) {
  * @returns {string}
  */
 function getVLESSConfig(userID, hostName) {
-	const vlessLink = `vless://${userID}@${hostName}:80?security=&fp=randomized&type=ws&path=%2F%3Fed%3D2048&host=${hostName}#${hostName}`
+	const vlessLink = `vless://${userID}@${hostName}:80?encryption=none&security=none&fp=randomized&type=ws&host=${hostName}&path=%2F%3Fed%3D2048#${hostName}`
 	const vlessTlsLink = `vless://${userID}@${hostName}:443?encryption=none&security=tls&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=%2F%3Fed%3D2048#${hostName}`
 	return `
 下面是非 TLS 端口的节点链接，可使用 CF 支持的非 TLS 端口：
@@ -754,6 +754,8 @@ ${vlessLink}
 
 下面是 TLS 端口的节点链接，可使用 CF 支持的 TLS 端口：
 ${vlessTlsLink}
+
+提示：如使用 workers.dev 域名，则无法使用 TLS 端口
 ---------------------------------------------------------------
 更多教程，请关注：小御坂的破站
 `;
